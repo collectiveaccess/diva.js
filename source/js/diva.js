@@ -286,8 +286,10 @@ class Diva
     _getLoadOptionsForState (state, manifest)
     {
         manifest = manifest || this.settings.manifest;
-
-        const options = ('v' in state) ? this._getViewState(state.v) : {};
+        const options = ('v' in state) ? this._getViewState(state.v) : {
+                    inGrid: false,
+                    inBookLayout: false
+                };
 
         if ('f' in state)
             options.inFullscreen = state.f;

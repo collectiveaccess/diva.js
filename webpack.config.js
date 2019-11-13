@@ -7,8 +7,10 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = [{
     entry: [
-        // 'babel-polyfill',
+     'babel-polyfill',
         "array.prototype.fill",
+        "mdn-polyfills/Node.prototype.append",
+        "fetch-polyfill",
         './source/js/diva.js',
         './source/css/diva.scss'
     ],
@@ -17,7 +19,15 @@ module.exports = [{
             {
                 test: /\.scss$/,
                 use: ['style-loader', MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
-            }
+            },
+            {
+                test: /\.(js|jsx)$/,
+                exclude: /node_modules/,
+                use: {
+                  loader: "babel-loader",
+                  options: { "presets": ["@babel/env"] }
+                }
+              }
         ]
     },
     plugins: [
