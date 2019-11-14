@@ -228,7 +228,7 @@
     @include frame($viewerFrame);
     position: relative;
     overflow: hidden;
-    min-height: 100px;
+    min-height: 500px;
     min-width: 200px;
     flex-grow: 1;
 }

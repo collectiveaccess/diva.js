@@ -381,17 +381,16 @@ export default class Renderer
         let sourceWidth = destWidth / scaledTile.scaleRatio;
         let sourceHeight = destHeight / scaledTile.scaleRatio;
 
-console.log("xxx",  img,
-            parseInt(sourceXOffset), parseInt(sourceYOffset),
-            parseInt(sourceWidth), parseInt(sourceHeight),
-            parseInt(canvasX), parseInt(canvasY),
-            parseInt(destWidth), parseInt(destHeight));
-        this._ctx.drawImage(
-            img,
-            parseInt(sourceXOffset), parseInt(sourceYOffset),
-            parseInt(sourceWidth), parseInt(sourceHeight),
-            parseInt(canvasX), parseInt(canvasY),
-            parseInt(destWidth), parseInt(destHeight));
+        try {
+            this._ctx.drawImage(
+                img,
+                sourceXOffset, sourceYOffset,
+                sourceWidth, sourceHeight,
+                canvasX, canvasY,
+                destWidth, destHeight);
+        } catch(error) {
+            // noop
+        }
     }
 
     _isTileForSourceVisible (pageIndex, tileSource)
