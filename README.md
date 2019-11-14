@@ -1,7 +1,7 @@
 NOTE
 ====
 
-This fork includes changes to make Diva.js 6.0 compatible with IE11. It added missing polyfills and patches IE11-specific errors.
+This fork includes changes to make Diva.js 6.0 compatible with IE11. It adds missing polyfills and patches IE11-specific errors.
 
 <p align="center">
   <a href="http://ddmal.github.io/diva.js">
